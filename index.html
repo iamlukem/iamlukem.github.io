@@ -21,17 +21,52 @@
 
 	<script type="text/javascript" src="lib/javascripts/vendor/shine.min.js"></script>
 	<script type="text/javascript">
+
+		function GetWidth()
+		  {
+		          var x = 0;
+		          if (self.innerHeight)
+		          {
+		                  x = self.innerWidth;
+		          }
+		          else if (document.documentElement && document.documentElement.clientHeight)
+		          {
+		                  x = document.documentElement.clientWidth;
+		          }
+		          else if (document.body)
+		          {
+		                  x = document.body.clientWidth;
+		          }
+		          return x;
+		  }
+
+		  function GetHeight()
+		  {
+		          var y = 0;
+		          if (self.innerHeight)
+		          {
+		                  y = self.innerHeight;
+		          }
+		          else if (document.documentElement && document.documentElement.clientHeight)
+		          {
+		                  y = document.documentElement.clientHeight;
+		          }
+		          else if (document.body)
+		          {
+		                  y = document.body.clientHeight;
+		          }
+		          return y;
+		  }
+
 		var shine = new Shine(document.getElementById('site_title'));
 		var shine2 = new Shine(document.getElementById('site_pre_title'));
 
-		window.addEventListener('mousemove', function(event) {
-		  shine.light.position.x = event.clientX;
-		  shine.light.position.y = event.clientY;
+		  shine.light.position.x = GetWidth()/2;
+		  shine.light.position.y = GetHeight();
 		  shine.draw();
-		  shine2.light.position.x = event.clientX;
-		  shine2.light.position.y = event.clientY;
+		  shine2.light.position.x = GetWidth()/2;
+		  shine2.light.position.y = GetHeight();
 		  shine2.draw();
-		}, false);
 	</script>
 </body>
 </html>
