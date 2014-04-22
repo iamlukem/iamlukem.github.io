@@ -58,8 +58,19 @@
 		          return y;
 		  }
 
-		var shine = new Shine(document.getElementById('site_title'));
-		var shine2 = new Shine(document.getElementById('site_pre_title'));
+		  var config = new shinejs.Config({
+			numSteps: 20,
+			opacity: 0.04,
+			opacityPow : 1,
+			offset: 0.3,
+			offsetPow: 3.5,
+			blur: 40,
+			blurPow: 1.5
+
+		});
+
+		var shine = new Shine(document.getElementById('site_title'), config);
+		var shine2 = new Shine(document.getElementById('site_pre_title'), config);
 
 		  shine.light.position.x = GetWidth()/2;
 		  shine.light.position.y = GetHeight();
