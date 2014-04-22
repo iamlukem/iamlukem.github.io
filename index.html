@@ -14,11 +14,24 @@
 </head>
 <body>
 	<section>
-		<h1>Iam<span>LukeM</span>.</h1>
-		<p>
-			a creative problem solver.
-		</p>
+		<div id="site_pre_title" class="site-pre-title">i am</div>
+		<div id="site_title" class="site-title">LukeM.</div>
+
 	</section>
-	<img class="background" src="lib/images/luke-martin.jpg">
+
+	<script type="text/javascript" src="lib/javascripts/vendor/shine.min.js"></script>
+	<script type="text/javascript">
+		var shine = new Shine(document.getElementById('site_title'));
+		var shine2 = new Shine(document.getElementById('site_pre_title'));
+
+		window.addEventListener('mousemove', function(event) {
+		  shine.light.position.x = event.clientX;
+		  shine.light.position.y = event.clientY;
+		  shine.draw();
+		  shine2.light.position.x = event.clientX;
+		  shine2.light.position.y = event.clientY;
+		  shine2.draw();
+		}, false);
+	</script>
 </body>
 </html>
