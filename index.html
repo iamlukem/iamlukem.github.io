@@ -8,15 +8,6 @@
 	<title>I am Luke Martin</title>
 	<link rel="stylesheet" type="text/css" href="lib/stylesheets/vendor/normalize.css">
 	<link rel="stylesheet" type="text/css" href="lib/stylesheets/luke-martin.css" />
-	<script>
-
-		var date = new Date();
-		var hours = date.getHours();
-
-		if ( hours <= 5 || hours >= 16 ){
-			document.write('<link rel="stylesheet" type="text/css" href="lib/stylesheets/luke-martin-noir.css" />');
-		}
-	</script>
 
 	<script type="text/javascript" src="lib/javascripts/vendor/modernizr.iamlukem.js"></script>
 
@@ -52,6 +43,17 @@
 		  	shine2.light.position.y = event.clientY;
 		  	shine2.draw();
 		}, false);
+
+
+		var date = new Date();
+		var hours = date.getHours();
+
+		// Adds a night time stylesheet
+		if ( hours <= 5 || hours >= 16 ){
+			document.getElementById('site_pre_title').style.color = '#111'; 
+			document.getElementById('site_title').style.color = '#111'; 
+			document.body.style.background = '#111'; 
+		}
 
 	</script>
 </body>
