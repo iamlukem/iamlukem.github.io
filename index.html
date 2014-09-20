@@ -22,10 +22,32 @@
 	<script type="text/javascript" src="lib/javascripts/vendor/shine.min.js"></script>
 	<script type="text/javascript">
 
+		function GetWidth() {
+			var x = 0;
+			if (self.innerHeight)
+				{ x = self.innerWidth; }
+			else if (document.documentElement && document.documentElement.clientHeight)
+				{ x = document.documentElement.clientWidth; }
+			else if (document.body)
+				{  x = document.body.clientWidth; }
+			return x;
+		}
+
+		function GetHeight() {
+			var y = 0;
+			if (self.innerHeight)
+				{ y = self.innerHeight; }
+			else if (document.documentElement && document.documentElement.clientHeight)
+				{ y = document.documentElement.clientHeight; }
+			else if (document.body)
+				{ y = document.body.clientHeight; }
+			return y;
+		}
+
 		var config = new shinejs.Config({
 			numSteps: 20,
-			opacity: 0.03,
-			opacityPow : 0.8,
+			opacity: 0.04,
+			opacityPow : 1,
 			offset: 0.3,
 			offsetPow: 3.5,
 			blur: 40,
@@ -35,24 +57,22 @@
 		var shine = new Shine(document.getElementById('site_title'), config);
 		var shine2 = new Shine(document.getElementById('site_pre_title'), config);
 
-		window.addEventListener('mousemove', function(event) {
-		  	shine.light.position.x = event.clientX;
-		  	shine.light.position.y = event.clientY;
-		  	shine.draw();
-		  	shine2.light.position.x = event.clientX;
-		  	shine2.light.position.y = event.clientY;
-		  	shine2.draw();
-		}, false);
-
+		shine.light.position.x = GetWidth()/2;
+		shine.light.position.y = GetHeight();
+		shine.draw();
+		shine2.light.position.x = GetWidth()/2;
+		shine2.light.position.y = GetHeight();
+		shine2.draw();
 
 		var date = new Date();
 		var hours = date.getHours();
+		var color = '#222';
 
 		// Adds a night time stylesheet
 		if ( hours <= 5 || hours >= 16 ){
-			document.getElementById('site_pre_title').style.color = '#111'; 
-			document.getElementById('site_title').style.color = '#111'; 
-			document.body.style.background = '#111'; 
+			document.getElementById('site_pre_title').style.color = color; 
+			document.getElementById('site_title').style.color = color; 
+			document.body.style.background = color; 
 		}
 
 	</script>
