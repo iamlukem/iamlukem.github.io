@@ -13,20 +13,24 @@
 
 </head>
 <body>
-	<section>
-		<div id="site_pre_title" class="site-pre-title">i am</div>
-		<div id="site_title" class="site-title">LukeM.</div>
-
+	<section id="siteTitleWrapper" class="site-title-wrapper">
+		<div class="site-pre-title shine">i am</div>
+		<div class="site-title shine">LukeM.</div>
 	</section>
 
 	<script type="text/javascript" src="lib/javascripts/vendor/shine.min.js"></script>
 	<script type="text/javascript">
 
+
+		// Helper Functions
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 		function GetWidth() {
 			var x = 0;
-			if (self.innerHeight)
+			var dir = 'Height';
+			if (self.innerWidth)
 				{ x = self.innerWidth; }
-			else if (document.documentElement && document.documentElement.clientHeight)
+			else if (document.documentElement && document.documentElement.clientWidth)
 				{ x = document.documentElement.clientWidth; }
 			else if (document.body)
 				{  x = document.body.clientWidth; }
@@ -44,6 +48,9 @@
 			return y;
 		}
 
+		// Shine Settings
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 		var config = new shinejs.Config({
 			numSteps: 20,
 			opacity: 0.04,
@@ -54,15 +61,20 @@
 			blurPow: 1.5
 		});
 
-		var shine = new Shine(document.getElementById('site_title'), config);
-		var shine2 = new Shine(document.getElementById('site_pre_title'), config);
+		var $shiners = document.getElementsByClassName("shine");
 
-		shine.light.position.x = GetWidth()/2;
-		shine.light.position.y = GetHeight();
-		shine.draw();
-		shine2.light.position.x = GetWidth()/2;
-		shine2.light.position.y = GetHeight();
-		shine2.draw();
+		for (var i = $shiners.length - 1; i >= 0; i--) {
+
+			var shine = new Shine($shiners[i], config);
+
+			shine.light.position.x = GetWidth()/2;
+			shine.light.position.y = GetHeight();
+			shine.draw();
+		};
+
+
+		// Color Setup
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 		var date = new Date();
 		var hours = date.getHours();
