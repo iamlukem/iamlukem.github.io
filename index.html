@@ -48,6 +48,16 @@
 			return y;
 		}
 
+		function setColor(elements, value){
+			// setColor function
+			// @params array(elements), value ) ;
+
+			for (var i = elements.length - 1; i >= 0; i--) {
+				elements[i].style.color = value;
+			};
+
+		}
+
 		// Shine Settings
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -82,8 +92,8 @@
 
 		// Adds a night time stylesheet
 		if ( hours <= 5 || hours >= 16 ){
-			document.getElementById('site_pre_title').style.color = color; 
-			document.getElementById('site_title').style.color = color; 
+			var $toSet = document.getElementsByClassName("shine");
+			setColor($toSet, color);
 			document.body.style.background = color; 
 		}
 
