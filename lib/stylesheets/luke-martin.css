@@ -23,6 +23,7 @@ body {
   color: #efefef;
   font-size: 1em;
   letter-spacing: -0.06125em; 
+  z-index: 200;
 }
 
 .site-title{
@@ -31,6 +32,7 @@ body {
   font-size: 2em;
   font-weight: bold;
   letter-spacing: -0.06125em;
+  z-index: 100;
 }
 
 
