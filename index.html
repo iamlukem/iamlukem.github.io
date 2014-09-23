@@ -6,106 +6,21 @@
 	<meta name="description" content="I am a creator, designer, problem solver." />
 
 	<title>I am Luke Martin</title>
-	<link rel="stylesheet" type="text/css" href="lib/stylesheets/vendor/normalize.css">
-	<link rel="stylesheet" type="text/css" href="lib/stylesheets/luke-martin.css" />
+	<link rel="stylesheet" type="text/css" href="library/stylesheets/luke-martin.css" />
 
-	<script type="text/javascript" src="lib/javascripts/vendor/modernizr.iamlukem.js"></script>
+	<script type="text/javascript" src="library/javascripts/vendor/modernizr.iamlukem.js"></script>
 
 </head>
 <body>
-	<section id="siteTitleWrapper" class="site-title-wrapper">
+	<section class="site-title-wrapper">
 		<div class="site-pre-title shine">i am</div>
 		<div class="site-title shine">LukeM.</div>
+		<a href="http://github.com/iamlukem" class="github"><i class="fa fa-github-alt shine"></i></a>
+		<a href="http://twitter.com/iamlukem" class="twitter"><i class="fa fa-twitter"></i></a>
 	</section>
 
-	<script type="text/javascript" src="lib/javascripts/vendor/shine.min.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="library/javascripts/vendor/shine.min.js"></script>
+	<script type="text/javascript" src="library/javascripts/luke-martin.js"></script>
 
-
-		// Helper Functions
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-		function GetWidth() {
-			var x = 0;
-			var dir = 'Height';
-			if (self.innerWidth)
-				{ x = self.innerWidth; }
-			else if (document.documentElement && document.documentElement.clientWidth)
-				{ x = document.documentElement.clientWidth; }
-			else if (document.body)
-				{  x = document.body.clientWidth; }
-			return x;
-		}
-
-		function GetHeight() {
-			var y = 0;
-			if (self.innerHeight)
-				{ y = self.innerHeight; }
-			else if (document.documentElement && document.documentElement.clientHeight)
-				{ y = document.documentElement.clientHeight; }
-			else if (document.body)
-				{ y = document.body.clientHeight; }
-			return y;
-		}
-
-		function setFontColor(className, value){
-			// setColor function
-			// @params 
-			// - class (string) of the elements to have colour set
-			// - value (string) #hexadecimal of the desired color.
-			//
-
-			var elements = document.getElementsByClassName(className);
-
-			for (var i = elements.length - 1; i >= 0; i--) {
-				elements[i].style.color = value;
-			};
-
-		}
-
-
-		// Color Setup
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-		var date = new Date();
-		var hours = date.getHours();
-		var color = '#111';
-		var shadowColor = 0;
-		var shadowOppacity = 0.04
-
-		// Adds a night time stylesheet
-		if ( hours <= 5 || hours >= 16 ){
-			setFontColor('shine', color);
-			document.body.style.background = color; 
-			shadowColor = 200;
-			shadowOppacity = 0.08
-		}
-
-		// Shine Settings
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-		var config = new shinejs.Config({
-			numSteps: 20,
-			opacity: shadowOppacity,
-			opacityPow : 1,
-			offset: 0.3,
-			offsetPow: 3.5,
-			blur: 40,
-			blurPow: 1.5,
-			shadowRGB: new shinejs.Color(shadowColor, shadowColor, shadowColor)
-		});
-
-		var $shiners = document.getElementsByClassName("shine");
-
-		for (var i = $shiners.length - 1; i >= 0; i--) {
-
-			var shine = new Shine($shiners[i], config);
-
-			shine.light.position.x = GetWidth()/2;
-			shine.light.position.y = GetHeight();
-			shine.draw();
-		};
-
-	</script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+
+@import "vendor/normalize";
+@import "vendor/font-awesome"; 
+
+$day: #fff;
+$darken: 5%;
+$night: #111;
+
+%text-shadow {
+  text-shadow: 1px 1px 0px $day;
+
+  .night & {
+    text-shadow: -1px -1px 0px lighten($night, 2%);
+  }
+}
+
+html {
+  height: 100%;
+
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-color: darken($day, 1%);
+  font-size: 5em;
+  color: darken($day, $darken);
+
+  @media all and (max-width: 600px){
+    font-size: 3em;
+  }
+
+  .night & {
+    background-color: $night; 
+    color: darken($night, $darken);
+  }
+}
+
+a {
+  @extend %text-shadow;
+  transition: all 250ms;
+  &:link, &:visited {
+    color: darken($day, $darken);
+
+    .night & {
+      color: darken($night, $darken);
+    }
+  }
+}
+
+a.github {
+  &:hover, &:active {
+    color: #aaa;
+    .night & {
+      color: #aaa;
+    }
+  }
+}
+a.twitter {
+  &:hover, &:active {
+    color: #4099ff;
+    .night & {
+      color: #4099ff;
+    }
+  }
+}
+
+.site-title-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  margin: -2.125em 0 0 0;
+  @extend %text-shadow;
+}
+
+.site-pre-title {
+  font-size: 1em;
+  letter-spacing: -0.06125em; 
+  z-index: 200;
+}
+
+.site-title{
+  margin: -0.25em 0 0 0;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: -0.06125em;
+  z-index: 100;
+}
+
+
+@media all and (max-width: 600px){
+  body {
+    font-size: 3em;
+  }
+}
