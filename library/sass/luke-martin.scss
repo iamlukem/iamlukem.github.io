@@ -1,97 +1,113 @@
-
 @import "vendor/normalize";
-@import "vendor/font-awesome"; 
 
 $day: #fff;
 $darken: 5%;
 $night: #111;
 
 %text-shadow {
-  text-shadow: 1px 1px 0px $day;
+    text-shadow: 1px 1px 0 $day;
 
-  .night & {
-    text-shadow: -1px -1px 0px lighten($night, 2%);
-  }
+    .night & {
+        text-shadow: -1px -1px 0 lighten($night, 2%);
+    }
 }
 
 html {
-  height: 100%;
-
+    height: 100%;
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
-  height: 100%;
-  background-color: darken($day, 1%);
-  font-size: 5em;
-  color: darken($day, $darken);
-
-  @media all and (max-width: 600px){
+    display: table;
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 3em;
-  }
-
-  .night & {
-    background-color: $night; 
-    color: darken($night, $darken);
-  }
-}
-
-a {
-  @extend %text-shadow;
-  transition: all 250ms;
-  &:link, &:visited {
+    background-color: darken($day, 1%);
     color: darken($day, $darken);
 
-    .night & {
-      color: darken($night, $darken);
+    @media all and (min-width: 600px) {
+        font-size: 5em;
     }
-  }
-}
 
-a.github {
-  &:hover, &:active {
-    color: #aaa;
     .night & {
-      color: #aaa;
+        background-color: $night;
+        color: darken($night, $darken);
     }
-  }
 }
-a.twitter {
-  &:hover, &:active {
-    color: #4099ff;
-    .night & {
-      color: #4099ff;
+
+.site-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.site-links {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    @extend %text-shadow;
+    text-decoration: none;
+
+    svg {
+        width: 100%;
+        height: auto;
     }
-  }
+    path {
+        transition: fill 250ms;
+        fill: darken($day, $darken);
+
+        .night & {
+            fill: darken($night, $darken);
+        }
+    }
 }
 
-.site-title-wrapper {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  text-align: center;
-  margin: -2.125em 0 0 0;
-  @extend %text-shadow;
+.button__github {
+    &:active,
+    &:hover {
+        path {
+            fill: #aaa !important;
+
+            .night & {
+                fill: #aaa !important;
+            }
+        }
+    }
+}
+.button__twitter {
+    &:active,
+    &:hover {
+        path {
+            fill: #4099ff !important;
+
+            .night & {
+                fill: #4099ff !important;
+            }
+        }
+    }
 }
 
-.site-pre-title {
-  font-size: 1em;
-  letter-spacing: -0.06125em; 
-  z-index: 200;
+.site-title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    @extend %text-shadow;
 }
 
-.site-title{
-  margin: -0.25em 0 0 0;
-  font-size: 2em;
-  font-weight: bold;
-  letter-spacing: -0.06125em;
-  z-index: 100;
+.site-title__pre {
+    font-size: 1em;
+    line-height: 1;
+    letter-spacing: -0.06125em;
 }
 
-
-@media all and (max-width: 600px){
-  body {
-    font-size: 3em;
-  }
+.site-title__name {
+    font-size: 2em;
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: -0.06125em;
+    transform: translateY(-0.125em);
 }
